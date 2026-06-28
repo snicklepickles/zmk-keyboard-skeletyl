@@ -1,0 +1,22 @@
+#include "skeletyl.dtsi"
+
+&default_transform {
+    col-offset = <5>;
+};
+
+&kscan0 {
+    col-gpios
+        = <&gpio1 6 GPIO_ACTIVE_HIGH>   // Col 0: Inner  (106)
+        , <&gpio1 4 GPIO_ACTIVE_HIGH>   // Col 1: Index  (104)
+        , <&gpio0 11 GPIO_ACTIVE_HIGH>  // Col 2: Middle (011)
+        , <&gpio1 0 GPIO_ACTIVE_HIGH>   // Col 3: Ring   (100)
+        , <&gpio0 24 GPIO_ACTIVE_HIGH>  // Col 4: Outer  (024)
+        ;
+
+        row-gpios
+        = <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 0: Top    (113)
+        , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 1: Middle (111)
+        , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 2: Bottom (010)
+        , <&gpio0 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 3: Thumb  (009)
+        ;
+};
